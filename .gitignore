@@ -1,0 +1,4 @@
+.env
+oauth.json
+.venv/
+__pycache__/

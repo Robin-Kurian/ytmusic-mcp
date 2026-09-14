@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "yt-music-manager": {
+      "command": "/absolute/path/to/ytmusic-mcp/.venv/bin/python",
+      "args": ["/absolute/path/to/ytmusic-mcp/server.py"]
+    }
+  }
+}
