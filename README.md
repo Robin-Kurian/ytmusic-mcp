@@ -1,3 +1,5 @@
+![YT Music Manager](https://res.cloudinary.com/itsrobin/image/upload/f_auto,q_75,c_limit,w_1920/v1789377202/itsrobin/projects/ogguijoiojugies3tapw.jpg)
+
 # YT Music Manager
 
 A local MCP server for your YouTube Music playlists. You clone it, sign in with **your** Google account, then point an AI coding tool at `server.py`. After that you can say things like "add Heart of Courage to this playlist" and it edits playlists on **your** account.
@@ -36,14 +38,12 @@ Do this in a terminal before you touch Cursor, Codex, or anything else.
 ### 1. Clone and install
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/ytmusic-mcp.git
+git clone https://github.com/Robin-Kurian/ytmusic-mcp.git
 cd ytmusic-mcp
 python3 -m venv .venv
 source .venv/bin/activate          # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 ```
-
-Swap `YOUR_USERNAME` for the GitHub user or org that hosts the repo.
 
 ### 2. Google OAuth credentials
 
