@@ -10,17 +10,29 @@ It talks to any MCP host that can start a local process (stdio). That includes C
 
 ## What it can do
 
-Two tools:
+Playlist tools:
 
+- **`create_playlist`** makes a new playlist (private / unlisted / public) and can add songs in the same call.
+- **`list_playlists`** lists playlists on the signed-in account.
+- **`list_playlist_songs`** lists the tracks on one playlist.
+- **`update_playlist`** changes title, description, or privacy.
+- **`delete_playlist`** permanently deletes a playlist you own.
 - **`add_songs_to_playlist`** searches YouTube Music for each query and appends the first match.
-- **`remove_songs_from_playlist`** lists the playlist and removes tracks whose titles contain your query (case-insensitive).
+- **`remove_songs_from_playlist`** removes tracks whose titles contain your query (case-insensitive).
+- **`copy_songs_to_playlist`** copies matching tracks to another playlist. Omit the queries to copy everything.
+- **`move_songs_to_playlist`** copies matching tracks, then removes them from the source. Omit the queries to move everything.
 
 You can pass a playlist ID (`PLxxxxx`) or a full YouTube Music URL.
 
 Once it is connected, prompts like these work:
 
+- Create a private playlist called Night Ride and add Malare and Munbe Vaa
+- List my playlists
+- What's on playlist `PLxxxxx`
 - Add Time by Hans Zimmer and Heart of Courage to playlist `PLxxxxx`
 - Remove the Krrish flute remix from https://music.youtube.com/playlist?list=PLxxxxx
+- Move Wannabe and DMX from the bike-ride playlist to Trash
+- Copy Nenjukkul Peidhidum to my Work Mode playlist
 
 If you only want to listen to music, use [YouTube Music](https://music.youtube.com). You do not need this.
 
@@ -128,7 +140,7 @@ Everywhere in Cursor: `~/.cursor/mcp.json`
 }
 ```
 
-You should see **YT Music Manager** with `add_songs_to_playlist` and `remove_songs_from_playlist`. If the server shows an error, open Output in Cursor and pick **MCP Logs**.
+You should see **YT Music Manager** with tools for creating playlists, listing them, adding/removing tracks, and moving or copying songs between playlists. If the server shows an error, open Output in Cursor and pick **MCP Logs**.
 
 ### Codex (CLI, IDE extension, ChatGPT desktop)
 
@@ -256,7 +268,8 @@ That has a few practical effects:
 - The first search hit is what gets added. `Time Hans Zimmer` beats `Time`.
 - You can only change playlists your signed-in account can edit.
 - Playlist IDs start with `PL`. Share-link junk like `si=` is ignored.
-- Adding or removing a lot of tracks means a lot of YouTube Data API calls. Google's quota applies.
+- Move and copy match titles the same way remove does (case-insensitive substring). Leave the song list empty to transfer the whole playlist. Tracks already on the destination are not duplicated.
+- Creating, listing, adding, moving, or removing a lot of tracks means a lot of YouTube Data API calls. Google's quota applies.
 
 ## If it does not start
 
